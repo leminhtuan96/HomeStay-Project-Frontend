@@ -1,0 +1,67 @@
+<div class="main mt-3">
+  <section class="signup">
+    <!-- <img src="images/signup-bg.jpg" alt=""> -->
+    <div class="container">
+      <div class="signup-content">
+        <form [formGroup]="loginForm" id="signup-form" (ngSubmit)="login()">
+          <h2 class="form-title">SIGN IN</h2>
+          <div class="form-group">
+            <input
+              type="email"
+              class="form-input"
+              name="name"
+              id="name"
+              formControlName="email"
+              placeholder="Your Email"
+              required
+            />
+          </div>
+          <div *ngIf="f.email.invalid && (f.email.dirty || f.email.touched)">
+            <div *ngIf="f.email.errors">
+              <div *ngIf="f.email.errors.required">
+                <small class="form-text text-muted err"
+                  >Email khong duoc de trong</small
+                >
+              </div>
+              <div *ngIf="f.email.errors.email">
+                <small class="form-text text-muted err">Email khong dung</small>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <input
+              type="password"
+              class="form-input"
+              name="email"
+              id="email"
+              formControlName="password"
+              placeholder="Your Password"
+            />
+          </div>
+          <div
+            *ngIf="
+              f.password.invalid && (f.password.dirty || f.password.touched)
+            "
+          >
+            <div *ngIf="f.password.errors">
+              <div *ngIf="f.password.errors.required">
+                <small class="form-text text-muted err"
+                  >Nhập password để đăng nhập</small
+                >
+              </div>
+            </div>
+          </div>
+          <div class="form-group" *ngIf="loginForm.valid">
+            <button type="submit" class="form-submit">SIGN IN</button>
+          </div>
+        </form>
+        <p class="loginhere">
+          Do not have an account ?
+          <a routerLink="/register" class="loginhere-link">SIGN UP</a> | 
+          <a routerLink="" class="loginhere-link">Back</a>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>

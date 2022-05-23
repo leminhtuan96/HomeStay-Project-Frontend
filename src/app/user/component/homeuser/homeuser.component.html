@@ -1,0 +1,137 @@
+<div style="text-align: center">
+  <h2>Welcome to HTStay!</h2>
+  <p>Booking room, homestay, experience and further more on HTStay</p>
+</div>
+<div
+  id="carouselExampleInterval"
+  class="carousel mt-4 mr-4 ml-4"
+  data-ride="carousel"
+>
+  <div class="carousel-inner" style="height: 500px">
+    <div class="carousel-item active" data-interval="5000">
+      <img
+        src="https://static.dezeen.com/uploads/2020/02/house-in-the-landscape-niko-arcjitect-architecture-residential-russia-houses-khurtin_dezeen_2364_hero.jpg"
+        class="d-block w-100"
+        alt="..."
+        style="object-fit: cover"
+      />
+    </div>
+    <div class="carousel-item" data-interval="5000">
+      <img
+        src="https://pix10.agoda.net/hotelImages/22229131/-1/c3242e9eb4195110a77fce348ccddeb3.jpg?ca=23&ce=0&s=1024x768"
+        class="d-block w-100"
+        alt="..."
+        style="object-fit: cover"
+      />
+    </div>
+    <div class="carousel-item" data-interval="5000">
+      <img
+        src="https://assets.architecturaldigest.in/photos/60083e76274aca243711c3a4/16:9/w_2560%2Cc_limit/ghaziabad-uttar-pradesh-homes-photos-1366x768.jpg"
+        class="d-block w-100"
+        alt="..."
+        style="object-fit: cover"
+      />
+    </div>
+  </div>
+  <button
+    class="carousel-control-prev"
+    type="button"
+    data-target="#carouselExampleInterval"
+    data-slide="prev"
+  >
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </button>
+  <button
+    class="carousel-control-next"
+    type="button"
+    data-target="#carouselExampleInterval"
+    data-slide="next"
+  >
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </button>
+</div>
+<!-- </div> -->
+
+<div class="container-xxl py-5">
+  <div
+    class="text-center mx-auto mb-5 wow fadeInUp"
+    data-wow-delay="0.1s"
+    style="max-width: 600px"
+  >
+    <h1 class="mb-3">Top Destinations</h1>
+  </div>
+  <div class="row g-4">
+    <div
+      *ngFor="let city of listcity"
+      class="col-lg-3 col-sm-6 wow fadeInUp"
+      data-wow-delay="0.1s"
+    >
+      <a
+        class="cat-item d-block bg-light text-center rounded p-3"
+        routerLink="/city/{{ city.id }}"
+      >
+        <div class="rounded p-4">
+          <div>
+            <img
+              class="img-fluid"
+              style="width: 400px; height: 200px; margin: auto; display: block"
+              src="{{ city.image }}"
+              alt="Icon"
+            />
+          </div>
+          <h6 class="mt-3">{{ city.name }}</h6>
+          <!-- <span>123 Properties</span> -->
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+<!-- <div id="tab-1" class="tab-pane fade show p-0 active">
+  <div class="row g-4">
+    <div
+      class="col-lg-4 col-md-6 wow fadeInUp"
+      data-wow-delay="0.1s"
+      *ngFor="let room of listroom"
+    >
+      <div class="property-item rounded overflow-hidden">
+        <div class="position-relative overflow-hidden">
+          <a href=""><img class="img-fluid" src="{{ room.image }}" alt="" /></a>
+          <div
+            class="bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3"
+          >
+            For Sell
+          </div>
+          <div
+            class="bg-white rounded-top text-primary position-absolute start-0 bottom-0 mx-4 pt-1 mt-2 px-3"
+          >
+            {{ room.categoryname }}
+          </div>
+        </div>
+        <div class="p-4 pb-0">
+          <h5 class="text-primary mb-3">{{ room.price }} USD</h5>
+          <a class="d-block h5 mb-2">{{ room.name }}</a>
+          <p>
+            <i class="fa fa-map-marker-alt text-primary me-2"></i
+            >{{ room.address }}
+          </p>
+        </div>
+        <div class="d-flex border-top">
+          <small class="flex-fill text-center border-end py-2"
+            ><i class="fa fa-ruler-combined text-primary me-2"></i>1000
+            Sqft</small
+          >
+          <small class="flex-fill text-center border-end py-2"
+            ><i class="fa fa-bed text-primary me-2"></i
+            >{{ room.bedroom }} Bed</small
+          >
+          <small class="flex-fill text-center py-2"
+            ><i class="fa fa-bath text-primary me-2"></i
+            >{{ room.bathroom }} Bath</small
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->

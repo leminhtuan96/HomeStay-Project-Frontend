@@ -1,0 +1,51 @@
+<div class="container-fluid nav-bar bg-transparent mb-4 pb-4">
+  <nav class="navbar navbar-expand-lg bg-white navbar-light py-0 px-4">
+    <a routerLink="" class="navbar-brand d-flex align-items-center text-center">
+      <div class="icon p-2 me-2">
+        <img
+          class="img-fluid"
+          src="assets/img/HT Stay.png"
+          alt="Icon"
+          style="width: 40px; height: 40px"
+        />
+      </div>
+      <h1 class="m-0 text-primary">HTStay</h1>
+    </a>
+    <button
+      type="button"
+      class="navbar-toggler"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarCollapse"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <div class="navbar-nav ms-auto">
+        <div *ngIf="currentUser.role_id == 2">
+          <a routerLink="/host/create" class="nav-item nav-link active"
+            >Create Room</a
+          >
+        </div>
+      </div>
+      <div *ngIf="currentUser; else elseBlock">
+        <div class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown">{{
+            currentUser.username
+          }}</a>
+          <div class="dropdown-menu rounded-0 m-0">
+            <a routerLink="/profile" class="dropdown-item">Profile</a>
+            <a routerLink="" class="dropdown-item">Home</a>
+            <a routerLink="/changepassword" class="dropdown-item"
+              >Change Password</a
+            >
+            <button (click)="logout()" class="dropdown-item">Logout</button>
+          </div>
+        </div>
+      </div>
+      <ng-template #elseBlock>
+        <a routerLink="/login" class="px-3 d-none d-lg-flex">Login</a>
+        <a routerLink="/register" class="px-3 d-none d-lg-flex">Register</a>
+      </ng-template>
+    </div>
+  </nav>
+</div>

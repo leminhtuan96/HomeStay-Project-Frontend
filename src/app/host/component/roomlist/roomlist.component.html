@@ -1,0 +1,69 @@
+<div *ngIf="currentUser && currentUser.role_id == 2; else elseBlock">
+  <div id="tab-1" class="tab-pane fade show p-0 active mt-4 mb-4">
+    <div class="row g-4">
+      <div
+        class="col-lg-4 col-md-6 wow fadeInUp"
+        data-wow-delay="0.1s"
+        *ngFor="let room of listRoomHost"
+      >
+        <div class="property-item rounded overflow-hidden">
+          <div class="position-relative overflow-hidden">
+            <img
+              class="img-fluid"
+              style="width: 400px; height: 300px; margin: auto; display: block"
+              src="{{ room.image }}"
+              alt=""
+            />
+            <div
+              class="bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3"
+            >
+              {{ room.statusname }}
+            </div>
+            <div
+              class="bg-white rounded-top text-primary position-absolute start-0 bottom-0 mx-4 pt-1 mt-2 px-3"
+            >
+              {{ room.categoryname }}
+            </div>
+          </div>
+          <div class="p-4 pb-0">
+            <h5 class="text-primary mb-3">
+              {{ room.price }} USD<span>/night</span>
+            </h5>
+            <a
+              class="d-block h5 mb-2"
+              routerLink="/host/detail/{{ room.id }}"
+              >{{ room.name }}</a
+            >
+            <p>
+              <i class="fa fa-map-marker-alt text-primary me-2"></i
+              >{{ room.address }}
+            </p>
+          </div>
+          <div class="d-flex border-top">
+            <small class="flex-fill text-center border-end py-2"
+              ><a
+                class="d-block h6 mb-2"
+                routerLink="/host/update/{{ room.id }}"
+                >Update</a
+              ></small
+            >
+            <small class="flex-fill text-center border-end py-2"
+              ><a class="d-block h6 mb-2" (click)="deleteRoom(room.id)"
+                >Delete</a
+              ></small
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-template #elseBlock>
+  <div class="container">
+    <div class="card">
+      <div class="card-body" style="text-align: center">
+        Your are not Host please return <a routerLink="">Home</a>
+      </div>
+    </div>
+  </div>
+</ng-template>

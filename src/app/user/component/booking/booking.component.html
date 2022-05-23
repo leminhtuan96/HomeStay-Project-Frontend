@@ -1,0 +1,89 @@
+<div class="container">
+  <form [formGroup]="bookingForm" (submit)="bookingRoom()">
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <label for="startDay">Start Day</label>
+        <input
+          type="date"
+          class="form-control"
+          id="startDay"
+          value="Mark"
+          formControlName="startDay"
+          required
+        />
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="EndDay">End Day</label>
+        <input
+          type="date"
+          class="form-control"
+          id="EndDay"
+          value="Otto"
+          formControlName="endDay"
+          required
+        />
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col-md-6 mb-3"></div>
+    </div>
+
+    <div class="container">
+      <h5>Hotel : {{ showroom.name }}</h5>
+      <h5>Price : {{ showroom.price }} USD / ngày</h5>
+    </div>
+
+    <button
+      type="submit"
+      class="btn btn-primary ml-3 mr-3"
+      data-toggle="modal"
+      data-target="#exampleModal"
+    >
+      Booking
+    </button>
+    <a routerLink="" class="btn btn-danger">Cancel</a>
+  </form>
+</div>
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Booking</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+ 
+        <h6>Hotel : {{ showroom.name }}</h6>
+        <h6>Total Price : {{ showroom.totalprice }}</h6>
+        <h6>Start Day : {{ showroom.startDay }}</h6>
+        <h6>End Day : {{ showroom.endDay }}</h6>
+
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          (click)="addBookingRoom()"
+          class="btn btn-secondary"
+          data-dismiss="modal"
+        >
+          Confirm
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,166 @@
+<div class="main mt-3">
+  <section class="signup">
+    <!-- <img src="images/signup-bg.jpg" alt=""> -->
+    <div class="container">
+      <div class="signup-content">
+        <form
+          [formGroup]="registerForm"
+          id="signup-form"
+          (ngSubmit)="register()"
+          class="signup-form"
+        >
+          <h2 class="form-title">SIGN UP</h2>
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-input"
+              name="name"
+              id="name"
+              formControlName="username"
+              placeholder="Your Name"
+            />
+            <div
+              *ngIf="
+                f.username.invalid && (f.username.dirty || f.username.touched)
+              "
+            >
+              <div *ngIf="f.username.errors">
+                <div *ngIf="f.username.errors.required">
+                  <small class="form-text text-muted err">
+                    Name required
+                  </small>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <input
+              type="email"
+              class="form-input"
+              name="email"
+              id="email"
+              formControlName="email"
+              placeholder="Your Email"
+            />
+            <div *ngIf="f.email.invalid && (f.email.dirty || f.email.touched)">
+              <div *ngIf="f.email.errors">
+                <div *ngIf="f.email.errors.required">
+                  <small class="form-text text-muted err">
+                    Email required</small
+                  >
+                </div>
+                <div *ngIf="f.email.errors.email">
+                  <small class="form-text text-muted err"
+                    >Email invalidate</small
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <input
+              type="password"
+              class="form-input"
+              name="password"
+              id="password"
+              formControlName="password"
+              placeholder="Password"
+            />
+            <div
+              *ngIf="
+                f.password.invalid && (f.password.dirty || f.password.touched)
+              "
+            >
+              <div *ngIf="f.password.errors">
+                <div *ngIf="f.password.errors.required">
+                  <small class="form-text text-muted err">
+                    Password required
+                  </small>
+                </div>
+              </div>
+            </div>
+            <span
+              toggle="#password"
+              class="zmdi zmdi-eye field-icon toggle-password"
+            ></span>
+          </div>
+          <div class="form-group">
+            <input
+              type="password"
+              class="form-input"
+              name="email"
+              id="email"
+              formControlName="confirmPassword"
+              placeholder="ConfirmPassword"
+            />
+            <div
+              *ngIf="
+                f.confirmPassword.invalid &&
+                (f.confirmPassword.dirty || f.confirmPassword.touched)
+              "
+            >
+              <div *ngIf="f.confirmPassword.errors">
+                <div *ngIf="f.confirmPassword.errors.required">
+                  <small class="form-text text-muted err">
+                    ConfirmPassword required
+                  </small>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-input"
+              name="re_password"
+              id="re_password"
+              formControlName="phone"
+              placeholder="Phone"
+            />
+          </div>
+          <div *ngIf="f.phone.invalid && (f.phone.dirty || f.phone.touched)">
+            <div *ngIf="f.phone.errors">
+              <div *ngIf="f.phone.errors.required">
+                <small class="form-text text-muted err"> Phone required </small>
+              </div>
+              <!-- {{ f.phone.errors.maxLength }} -->
+              <div *ngIf="f.phone.errors.maxlength">
+                <small class="form-text text-muted err">
+                  Phone least 10 numbers
+                </small>
+              </div>
+            </div>
+          </div>
+          <!-- <div class="form-group"> -->
+          <div class="custom-control custom-checkbox">
+            <input
+              type="radio"
+              name="role_id"
+              formControlName="role_id"
+              value="3"
+            />User
+          </div>
+          <div class="custom-control custom-radio custom-control-inline">
+            <input
+              type="radio"
+              name="role_id"
+              formControlName="role_id"
+              value="2"
+            />Host
+          </div>
+          <div class="form-group" *ngIf="registerForm.valid">
+            <button type="submit" class="form-submit">SIGN UP</button>
+          </div>
+        </form>
+        <p class="loginhere">
+          Have already an account ?
+          <a routerLink="/login" class="loginhere-link">SIGN IN</a> |
+          <a routerLink="" class="loginhere-link"> Back</a>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
